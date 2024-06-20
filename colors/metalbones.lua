@@ -21,7 +21,7 @@ local base_specs = generator.generate(palette, bg, generator.get_global_config(c
 
 local specs = lush.extends({ base_specs }).with(function()
 	return {
-		String = nile,
+		String { base_specs.String, fg = palette.nile },
 	}
 end)
 
