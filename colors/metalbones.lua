@@ -12,9 +12,11 @@ if bg == "light" then
 else
 	palette = util.palette_extend({
 		khold = hsluv "#974b46",
+		bathory = hsluv "#e78a53",
 		metalred = hsluv "#835d5a",
 		metalgreen = hsluv "#628282",
 		metalblue = hsluv "#5f81a5",
+		metalyellow = hsluv "#915a39",
 		metalgray1 = hsluv "#121212",
 		metalgray2 = hsluv "#222222",
 		metalgray3 = hsluv "#4f4f4f",
@@ -37,9 +39,12 @@ local specs = lush.extends({ base_specs }).with(function()
 		Statement { base_specs.Statement, fg = palette.metalgray6 },
 		Type { base_specs.Type, fg = palette.metalgray3 },
 		Function { base_specs.Function, fg = palette.metalgray4 },
+		Search { base_specs.Search, bg = palette.metalyellow },
+		IncSearch { base_specs.IncSearch, bg = palette.bathory, fg = palette.metalgray2 },
 		GitSignsAdd { base_specs.GitSignsAdd, fg = palette.metalgreen },
 		GitSignsDelete { base_specs.GitSignsDelete, fg = palette.metalred },
 		GitSignsChange { base_specs.GitSignsDelete, fg = palette.metalblue },
+		FloatBorder { base_specs.FloatBorder, fg = palette.metalgray2 },
 	}
 end)
 
