@@ -51,5 +51,9 @@
         "name": "kanagawabones",
         "background": "dark",
         "description": "A zenbones variant inspired by Kanagawa."
+    },
+    {
+        "name": "metalbones",
+        "description": "A zenbones variant with metal hue and saturation."
     }
 ]
