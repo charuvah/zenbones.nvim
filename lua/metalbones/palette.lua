@@ -10,23 +10,38 @@ M.light = util.palette_extend({
 }, "light")
 
 M.dark = util.palette_extend({
-	bg = hsluv(0, 0, 9), -- sand
-	fg = hsluv(0, 0, 76), -- stone
-	khold = hsluv "#974b46",
-	bathory = hsluv "#e78a53",
-	metalred = hsluv "#835d5a",
-	metalgreen = hsluv "#628282",
-	metalblue = hsluv "#5f81a5",
-	metalyellow = hsluv "#915a39",
-	metalblack = hsluv "#000000",
-	metalgray0 = hsluv "#0a0a0a",
-	metalgray1 = hsluv "#121212",
-	metalgray2 = hsluv "#222222",
-	metalgray3 = hsluv "#4f4f4f",
-	metalgray4 = hsluv "#5f5f5f",
-	metalgray5 = hsluv "#919191",
-	metalgray6 = hsluv "#a1a1a1",
-	metalgray7 = hsluv "#c1c1c1",
+	-- Background & Foreground
+	bg = hsluv "#0a0a0a", -- sand
+	fg = hsluv "#c1c1c1", -- stone
+	-- Whites, grays and Blacks
+	metal_white = hsluv "#FFFFFF",
+	metal_mercury = hsluv "#E4E4E4",
+	metal_silver = hsluv "#C1C1C1",
+	metal_gray6 = hsluv "#AAABAB",
+	metal_gray5 = hsluv "#999999",
+	metal_gray4 = hsluv "#888888",
+	metal_gray3 = hsluv "#333333",
+	metal_gray2 = hsluv "#222222",
+	metal_gray1 = hsluv "#121212",
+	metal_gray0 = hsluv "#0a0a0a",
+	metal_black = hsluv "#000000",
+	-- Warmish
+	metal_stone = hsluv "#9B8D7F",
+	metal_americano = hsluv "#8C7F70",
+	-- Bluish
+	metal_electric = hsluv "#556677",
+	metal_steel = hsluv "#5F8787",
+	-- Greenish
+	metal_nile = hsluv "#777755",
+	metal_ponni = hsluv "#626B67",
+	-- Orangish
+	metal_barthelo = hsluv "#FBCB97",
+	metal_barthory = hsluv "#E78A53",
+	-- Redish
+	metal_orchid = hsluv "#DD9999",
+	metal_rose = hsluv "#A06666",
+	metal_rust = hsluv "#974B46",
+	metal_thorn = hsluv "#79241F",
 }, "dark")
 
 return M
