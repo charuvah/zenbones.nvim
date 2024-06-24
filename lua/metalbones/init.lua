@@ -21,7 +21,7 @@ local specs = lush.extends({ base_specs }).with(function(injected_fns)
 		--------------------------------------------------------------------------------
 		Number { base_specs.Number, fg = palette.metal_rust },
 		Float { base_specs.Float, fg = palette.metal_rust.lighten(10) },
-		Constant { base_specs.Constant, fg = palette.metal_steel },
+		Constant { base_specs.Constant, fg = palette.metal_steel.mix(palette.metal_gray2, 25) },
 		Character { Constant },
 		String { Constant },
 		String { String },
@@ -65,6 +65,13 @@ local specs = lush.extends({ base_specs }).with(function(injected_fns)
 		-- Telescope
 		--------------------------------------------------------------------------------
 		TelescopeMatching { Normal, fg = palette.metal_rose.darken(10) },
+		--------------------------------------------------------------------------------
+		-- Languages
+		--------------------------------------------------------------------------------
+		xmlTag { base_specs.xmlTag, fg = palette.metal_gray3 },
+		xmlTagName { base_specs.xmlTagName, fg = palette.metal_gray3.lighten(10) },
+		xmlAttrib { base_specs.xmlAttrib, fg = palette.metal_gray3.lighten(30) },
+		htmlTagName { xmlTagName },
 		--------------------------------------------------------------------------------
 		-- Treesitter
 		--------------------------------------------------------------------------------
@@ -119,6 +126,10 @@ local specs = lush.extends({ base_specs }).with(function(injected_fns)
 		sym "@diff.plus" { DiffAdd },
 		sym "@diff.minus" { DiffDelete },
 		sym "@diff.delta" { DiffChange },
+		-- Language: XML
+		sym "@tag.xml" { xmlTagName },
+		sym "@tag.delimiter.xml" { xmlTag },
+		sym "@tag.attribute.xml" { xmlAttrib },
 		--------------------------------------------------------------------------------
 		-- Diagnostics
 		--------------------------------------------------------------------------------
