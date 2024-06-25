@@ -14,7 +14,7 @@ local specs = lush.extends({ base_specs }).with(function(injected_fns)
 		--------------------------------------------------------------------------------
 		-- Text & NonText
 		--------------------------------------------------------------------------------
-		Normal { base_specs.Number, fg = theme.ui.normal },
+		Normal { base_specs.Normal, fg = theme.ui.normal },
 		Cursor { base_specs.Cursor, bg = theme.ui.cursor.bg, fg = theme.ui.cursor.fg },
 		CursorLine { base_specs.CursorLine, bg = theme.ui.cursor.highlight },
 		NonText { base_specs.NonText, fg = theme.ui.non_text },
@@ -50,9 +50,10 @@ local specs = lush.extends({ base_specs }).with(function(injected_fns)
 		DiffChange { base_specs.DiffChange, bg = theme.vcs.diff_change.bg, fg = theme.vcs.diff_change.fg },
 		DiffText { base_specs.DiffText, bg = theme.vcs.diff_text.bg, fg = theme.vcs.diff_text.fg },
 		--------------------------------------------------------------------------------
-		-- Telescope
+		-- Popups
 		--------------------------------------------------------------------------------
-		TelescopeMaching { Normal, fg = theme.plugins.telescope.matching },
+		NormalFloat { Normal, bg = theme.plugins.float.bg, fg = theme.plugins.float.fg },
+		TelescopeMatching { Normal, fg = theme.plugins.telescope.matching },
 		--------------------------------------------------------------------------------
 		-- Languages
 		--------------------------------------------------------------------------------

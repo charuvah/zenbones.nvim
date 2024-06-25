@@ -150,6 +150,10 @@ local c = color.metal_rust.mix(color.metal_black, 90)
 
 ---@class theme.plugins
 M.plugins = {}
+M.plugins.float = {
+	bg = color.metal_gray1,
+	fg = color.metal_gray5,
+}
 M.plugins.telescope = {
 	matching = color.metal_rose.darken(10),
 }
