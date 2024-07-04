@@ -158,6 +158,10 @@ M.plugins.telescope = {
 	matching = color.metal_rose.darken(10),
 }
 
+M.plugins.flash = {
+	label = color.metal_electric,
+}
+
 ---@class theme.lang
 M.lang = {}
 M.lang.xml = {

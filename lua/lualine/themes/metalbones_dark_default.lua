@@ -7,7 +7,7 @@ local inactive_fg = "#4f4f4f"
 return {
 	normal = {
 		a = { bg = "#222222", fg = common_fg, gui = "bold" },
-		b = { bg = "#121212", fg = common_fg },
+		b = { bg = "#121212", fg = "#5f5f5f" },
 		c = { bg = "#0a0a0a", fg = "#4f4f4f" },
 	},
 

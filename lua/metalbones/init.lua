@@ -28,7 +28,6 @@ local specs = lush.extends({ base_specs }).with(function(injected_fns)
 		Constant { base_specs.Constant, fg = theme.syntax.constant },
 		Character { Constant },
 		String { Constant },
-		String { String },
 		Type { base_specs.Type, fg = theme.syntax.type },
 		Identifier { Type },
 		Function { base_specs.Function, fg = theme.syntax.func },
@@ -54,6 +53,10 @@ local specs = lush.extends({ base_specs }).with(function(injected_fns)
 		--------------------------------------------------------------------------------
 		NormalFloat { Normal, bg = theme.plugins.float.bg, fg = theme.plugins.float.fg },
 		TelescopeMatching { Normal, fg = theme.plugins.telescope.matching },
+		--------------------------------------------------------------------------------
+		-- Plugins
+		--------------------------------------------------------------------------------
+		FlashLabel { Cursor, bg = theme.plugins.flash.label },
 		--------------------------------------------------------------------------------
 		-- Languages
 		--------------------------------------------------------------------------------

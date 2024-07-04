@@ -15,7 +15,7 @@ M.palette = util.palette_extend(fbg, "light")
 
 ---@class theme.ui
 M.ui = {
-	normal = color.metal_gray5,
+	normal = color.metal_gray4,
 	non_text = color.metal_gray3.darken(20),
 	line_nr = color.metal_gray3.darken(30),
 	more_msg = color.metal_steel.mix(color.metal_gray2, 20),
@@ -23,53 +23,53 @@ M.ui = {
 }
 
 M.ui.cursor = {
-	bg = color.metal_gray1,
-	fg = color.metal_silver,
-	highlight = color.metal_silver.darken(2),
-	line_nr = color.metal_gray3.darken(30),
+	bg = color.metal_gray6,
+	fg = color.metal_gray2,
+	highlight = color.metal_silver.lighten(70),
+	line_nr = color.metal_gray6.lighten(30),
 }
 
-M.ui.visual = { bg = color.metal_gray2.darken(30) }
+M.ui.visual = { bg = color.metal_gray6.lighten(60) }
 
 M.ui.search = {
-	bg = color.metal_stone.mix(color.metal_gray2, 50).darken(10),
+	bg = color.metal_stone.mix(color.metal_silver, 80).lighten(50),
 	fg = color.metal_gray1,
 }
 
 M.ui.search_inc = {
-	bg = color.metal_barthory.mix(color.metal_gray2, 50).darken(10),
+	bg = color.metal_barthory.mix(color.metal_silver, 50).lighten(10),
 	fg = color.metal_gray1,
 }
 
 M.ui.tab = {}
 M.ui.tab.line = {
-	bg = color.metal_gray0,
-	fg = color.metal_gray3,
+	bg = color.metal_mercury,
+	fg = color.metal_gray5,
 }
 M.ui.tab.sel = {
-	bg = color.metal_gray1,
-	fg = color.metal_thorn,
+	bg = color.metal_mercury,
+	fg = color.metal_steel,
 }
 
 ---@class theme.syntax
 M.syntax = {
-	number = color.metal_rust,
-	float = color.metal_rust.lighten(10),
-	constant = color.metal_steel.mix(color.metal_gray2, 25),
-	type = color.metal_gray4,
-	func = color.metal_gray4.darken(50),
-	keyword = color.metal_gray3.lighten(10),
-	variable = color.metal_gray5.darken(20),
-	member = color.metal_gray5.darken(40),
-	property = color.metal_gray5.darken(40),
-	typedef = color.metal_gray4.lighten(10),
-	parameter = color.metal_gray4.darken(20),
+	number = color.metal_steel,
+	float = color.metal_steel.darken(10),
+	constant = color.metal_thorn.mix(color.metal_mercury, 25),
+	type = color.metal_gray1,
+	func = color.metal_gray1.darken(40),
+	keyword = color.metal_gray2.lighten(10),
+	variable = color.metal_gray4,
+	member = color.metal_gray4.darken(40),
+	property = color.metal_gray4.darken(20),
+	typedef = color.metal_gray2.lighten(10),
+	parameter = color.metal_gray1.darken(10),
 }
 
 M.syntax.string = {
-	escape = color.metal_steel.darken(50),
-	special = color.metal_steel.darken(50),
-	regexp = color.metal_electric,
+	escape = color.metal_thorn.darken(50),
+	special = color.metal_thorn.darken(50),
+	regexp = color.metal_rust,
 }
 
 M.syntax.punctuation = {
@@ -81,32 +81,32 @@ M.syntax.punctuation = {
 }
 
 M.syntax.comment = {
-	fg = color.metal_gray2.lighten(8),
-	todo = color.metal_barthelo.mix(color.metal_gray2, 70),
-	warn = color.metal_barthelo.mix(color.metal_gray2, 70),
-	error = color.metal_barthory.mix(color.metal_gray2, 70),
-	note = color.metal_electric.mix(color.metal_gray2, 50),
-	question = color.metal_electric.mix(color.metal_gray2, 50),
-	special = color.metal_barthory.mix(color.metal_gray2, 70),
+	fg = color.metal_gray5.lighten(40),
+	todo = color.metal_barthelo.mix(color.metal_silver, 70),
+	warn = color.metal_barthelo.mix(color.metal_silver, 70),
+	error = color.metal_barthory.mix(color.metal_silver, 70),
+	note = color.metal_electric.mix(color.metal_silver, 50),
+	question = color.metal_electric.mix(color.metal_silver, 50),
+	special = color.metal_barthory.mix(color.metal_silver, 70),
 }
 M.syntax.wild_menu = { bg = color.metal_rose.darken(50) }
 
 ---@class theme.vcs
 M.vcs = {}
 M.vcs.diff_add = {
-	bg = color.metal_nile.mix(color.metal_black, 85),
+	bg = color.metal_nile.mix(color.metal_white, 85),
 	fg = color.metal_nile.mix(color.metal_gray2, 30),
 }
 M.vcs.diff_delete = {
-	bg = color.metal_thorn.mix(color.metal_black, 85),
+	bg = color.metal_thorn.mix(color.metal_white, 85),
 	fg = color.metal_thorn.mix(color.metal_gray2, 30),
 }
 M.vcs.diff_change = {
-	bg = color.metal_electric.mix(color.metal_black, 85),
+	bg = color.metal_electric.mix(color.metal_white, 85),
 	fg = color.metal_electric.mix(color.metal_gray2, 30),
 }
 M.vcs.diff_text = {
-	bg = color.metal_gray4.mix(color.metal_black, 90),
+	bg = color.metal_gray4.mix(color.metal_white, 90),
 	fg = color.metal_gray4.mix(color.metal_gray2, 30),
 }
 
@@ -126,36 +126,38 @@ M.diagnostics = {
 }
 M.diagnostics.virtual = {}
 M.diagnostics.virtual.ok = {
-	bg = color.metal_nile.mix(color.metal_black, 85),
+	bg = color.metal_nile.mix(color.metal_silver, 85),
 	fg = color.metal_nile.mix(color.metal_gray2, 30),
 }
 M.diagnostics.virtual.hint = {
-	bg = color.metal_gray3.mix(color.metal_black, 80),
+	bg = color.metal_gray3.mix(color.metal_silver, 80),
 	fg = color.metal_gray3.darken(20),
 }
 M.diagnostics.virtual.info = {
-	bg = color.metal_electric.mix(color.metal_black, 85),
+	bg = color.metal_electric.mix(color.metal_silver, 85),
 	fg = color.metal_electric.mix(color.metal_gray2, 30),
 }
 M.diagnostics.virtual.warn = {
-	bg = color.metal_barthory.mix(color.metal_black, 95),
+	bg = color.metal_barthory.mix(color.metal_silver, 95),
 	fg = color.metal_barthory.mix(color.metal_gray2, 70),
 }
 M.diagnostics.virtual.error = {
-	bg = color.metal_rust.mix(color.metal_black, 90),
+	bg = color.metal_rust.mix(color.metal_silver, 90),
 	fg = color.metal_rust.mix(color.metal_gray2, 60),
 }
-
-local c = color.metal_rust.mix(color.metal_black, 90)
 
 ---@class theme.plugins
 M.plugins = {}
 M.plugins.float = {
-	bg = color.metal_gray1,
-	fg = color.metal_gray5,
+	bg = color.metal_silver,
+	fg = color.metal_gray3,
 }
 M.plugins.telescope = {
-	matching = color.metal_rose.darken(10),
+	matching = color.metal_americano.darken(10),
+}
+
+M.plugins.flash = {
+	label = color.metal_electric.lighten(70),
 }
 
 ---@class theme.lang
