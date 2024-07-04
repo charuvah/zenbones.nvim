@@ -20,13 +20,13 @@ M.ui = {
 	line_nr = color.metal_gray3.darken(30),
 	more_msg = color.metal_steel.mix(color.metal_gray2, 20),
 	warning_msg = color.metal_barthory.mix(color.metal_gray2, 50),
+	invisibles = color.metal_gray1.lighten(50),
 }
 
 M.ui.cursor = {
 	bg = color.metal_silver,
 	fg = color.metal_gray1,
 	highlight = color.metal_gray1.lighten(2),
-	line_nr = color.metal_gray3.darken(30),
 }
 
 M.ui.visual = { bg = color.metal_gray2.darken(30) }

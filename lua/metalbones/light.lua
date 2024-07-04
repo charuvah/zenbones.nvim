@@ -17,16 +17,16 @@ M.palette = util.palette_extend(fbg, "light")
 M.ui = {
 	normal = color.metal_gray4,
 	non_text = color.metal_gray3.darken(20),
-	line_nr = color.metal_gray3.darken(30),
+	line_nr = color.metal_gray6.lighten(30),
 	more_msg = color.metal_steel.mix(color.metal_gray2, 20),
 	warning_msg = color.metal_barthory.mix(color.metal_gray2, 50),
+	invisibles = color.metal_gray6.lighten(50),
 }
 
 M.ui.cursor = {
 	bg = color.metal_gray6,
 	fg = color.metal_gray2,
 	highlight = color.metal_silver.lighten(70),
-	line_nr = color.metal_gray6.lighten(30),
 }
 
 M.ui.visual = { bg = color.metal_gray6.lighten(60) }
@@ -76,7 +76,7 @@ M.syntax.punctuation = {
 	operator = color.metal_gray3.lighten(10),
 	bracket = color.metal_gray3.lighten(10),
 	special = color.metal_gray3.lighten(10),
-	delimiter = color.metal_gray3.lighten(10),
+	delimiter = color.metal_gray4,
 	constructor = color.metal_gray3.lighten(10),
 }
 
@@ -118,11 +118,11 @@ M.vcs.sign = {
 
 ---@class theme.diagnostics
 M.diagnostics = {
-	ok = color.metal_nile.mix(color.metal_gray2, 30),
-	hint = color.metal_gray3.darken(20),
-	info = color.metal_electric.mix(color.metal_gray2, 30),
-	warn = color.metal_barthory.mix(color.metal_gray2, 70),
-	error = color.metal_rust.mix(color.metal_gray2, 60),
+	ok = color.metal_nile.mix(color.metal_silver, 30),
+	hint = color.metal_gray5.lighten(20),
+	info = color.metal_electric.mix(color.metal_silver, 30),
+	warn = color.metal_barthory.mix(color.metal_silver, 70),
+	error = color.metal_rust.mix(color.metal_silver, 60),
 }
 M.diagnostics.virtual = {}
 M.diagnostics.virtual.ok = {
