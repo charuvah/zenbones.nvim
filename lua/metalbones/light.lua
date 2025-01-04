@@ -89,6 +89,7 @@ M.syntax.comment = {
 	question = color.metal_electric.mix(color.metal_silver, 50),
 	special = color.metal_barthory.mix(color.metal_silver, 70),
 }
+
 M.syntax.wild_menu = { bg = color.metal_rose.darken(50) }
 
 ---@class theme.vcs
