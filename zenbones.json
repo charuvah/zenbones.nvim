@@ -55,5 +55,9 @@
     {
         "name": "metalbones",
         "description": "A zenbones variant with metal hue and saturation."
+    },
+    {
+        "name": "retrobones",
+        "description": "A zenbones variant with retro hue and saturation."
     }
 ]
