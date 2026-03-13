@@ -20,6 +20,7 @@ M.ui = {
 	line_nr = color.metal_gray3.darken(30),
 	more_msg = color.metal_steel.mix(color.metal_gray2, 20),
 	warning_msg = color.metal_barthory.mix(color.metal_gray2, 50),
+	faded = color.metal_gray5.darken(50),
 	invisibles = color.metal_gray1.lighten(50),
 }
 

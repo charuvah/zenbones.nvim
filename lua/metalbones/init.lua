@@ -24,6 +24,8 @@ M.make_specs = function()
 			Visual { base_specs.Visual, bg = theme.ui.visual.bg },
 			NvimTreeWinSeparator { base_specs.Visual, bg = theme.ui.visual.bg },
 			VertSplit { Normal, fg = theme.ui.invisibles },
+			Pmenu { Normal, fg = theme.ui.faded },
+			PmenuThumb { Normal, fg = theme.ui.invisibles },
 			--------------------------------------------------------------------------------
 			-- Syntax
 			--------------------------------------------------------------------------------
