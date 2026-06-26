@@ -28,6 +28,7 @@ M.ui.cursor = {
 	bg = color.metal_silver,
 	fg = color.metal_gray1,
 	highlight = color.metal_gray1.lighten(2),
+	line_nr = color.metal_gray4,
 }
 
 M.ui.visual = { bg = color.metal_gray2.darken(30) }
@@ -52,11 +53,17 @@ M.ui.tab.sel = {
 	fg = color.metal_thorn,
 }
 
+M.ui.pmenu = {
+	sel  = color.metal_gray3,
+	sbar = color.metal_gray2,
+}
+
 ---@class theme.syntax
 M.syntax = {
 	number = color.metal_rust,
 	float = color.metal_rust.lighten(10),
 	constant = color.metal_steel.mix(color.metal_gray2, 25),
+	special = color.metal_stone,
 	type = color.metal_gray4,
 	func = color.metal_gray4.darken(50),
 	keyword = color.metal_gray3.lighten(10),
@@ -112,9 +119,9 @@ M.vcs.diff_text = {
 }
 
 M.vcs.sign = {
-	add = color.metal_gray2,
-	delete = color.metal_thorn.darken(50),
-	change = color.metal_electric.darken(50),
+	add    = color.metal_nile.mix(color.metal_gray2, 30),
+	delete = color.metal_thorn.mix(color.metal_gray2, 30),
+	change = color.metal_electric.mix(color.metal_gray2, 30),
 }
 
 ---@class theme.diagnostics
@@ -146,8 +153,6 @@ M.diagnostics.virtual.error = {
 	bg = color.metal_rust.mix(color.metal_black, 90),
 	fg = color.metal_rust.mix(color.metal_gray2, 60),
 }
-
-local c = color.metal_rust.mix(color.metal_black, 90)
 
 ---@class theme.plugins
 M.plugins = {}

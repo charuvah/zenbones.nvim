@@ -20,6 +20,7 @@ M.ui = {
 	line_nr = color.metal_gray6.lighten(30),
 	more_msg = color.metal_steel.mix(color.metal_gray2, 20),
 	warning_msg = color.metal_barthory.mix(color.metal_gray2, 50),
+	faded = color.metal_gray4.lighten(50),
 	invisibles = color.metal_gray6.lighten(50),
 }
 
@@ -27,6 +28,7 @@ M.ui.cursor = {
 	bg = color.metal_gray6,
 	fg = color.metal_gray2,
 	highlight = color.metal_silver.lighten(70),
+	line_nr = color.metal_gray1,
 }
 
 M.ui.visual = { bg = color.metal_gray6.lighten(60) }
@@ -51,11 +53,17 @@ M.ui.tab.sel = {
 	fg = color.metal_steel,
 }
 
+M.ui.pmenu = {
+	sel  = color.metal_gray6,
+	sbar = color.metal_silver,
+}
+
 ---@class theme.syntax
 M.syntax = {
 	number = color.metal_steel,
 	float = color.metal_steel.darken(10),
 	constant = color.metal_thorn.mix(color.metal_mercury, 25),
+	special = color.metal_americano.darken(20),
 	type = color.metal_gray1,
 	func = color.metal_gray1.darken(40),
 	keyword = color.metal_gray2.lighten(10),
@@ -112,9 +120,9 @@ M.vcs.diff_text = {
 }
 
 M.vcs.sign = {
-	add = color.metal_gray2,
-	delete = color.metal_thorn.darken(50),
-	change = color.metal_electric.darken(50),
+	add    = color.metal_nile.mix(color.metal_gray2, 30),
+	delete = color.metal_thorn.mix(color.metal_gray2, 30),
+	change = color.metal_electric.mix(color.metal_gray2, 30),
 }
 
 ---@class theme.diagnostics

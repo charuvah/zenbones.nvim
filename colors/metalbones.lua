@@ -1,3 +1,5 @@
+vim.g.colors_name = "metalbones"
+
 local lush = require "lush"
 local metalbones = require "metalbones"
 lush(metalbones.make_specs())
@@ -8,7 +10,11 @@ vim.keymap.set("n", "<F5>", function()
 	else
 		vim.cmd [[set bg=light]]
 	end
-	vim.cmd [[colorscheme metalbones]]
+	package.loaded["metalbones.palette"] = nil
+	package.loaded["metalbones.dark"] = nil
+	package.loaded["metalbones.light"] = nil
+	package.loaded["metalbones.theme"] = nil
+	package.loaded["metalbones"] = nil
 	local lush = require "lush"
 	local metalbones = require "metalbones"
 	lush(metalbones.make_specs())
