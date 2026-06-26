@@ -26,7 +26,7 @@ M.ui = {
 M.ui.cursor = {
 	bg = color.retro_bright4,
 	fg = color.retro_dark1,
-	highlight = color.retro_bright4.darken(80),
+	highlight = color.retro_dark3,
 }
 
 M.ui.visual = { bg = color.retro_bright4.darken(80) }

@@ -30,8 +30,6 @@ M.make_specs = function()
 			PmenuThumb { Normal, bg = theme.ui.invisibles },
 			-- Fix groups that chain to overridden groups inside base_specs
 			CursorColumn { CursorLine },
-			SignColumn { LineNr },
-			FoldColumn { LineNr, gui = "bold" },
 			ModeMsg { Normal },
 			TermCursor { Cursor },
 			--------------------------------------------------------------------------------
@@ -146,6 +144,8 @@ M.make_specs = function()
 			},
 			LineNr { base_specs.LineNr, fg = theme.ui.line_nr },
 			CursorLineNr { base_specs.LineNr, fg = theme.ui.cursor.line_nr },
+			SignColumn { LineNr },
+			FoldColumn { LineNr, gui = "bold" },
 			CurSearch { IncSearch },
 			MatchParen { Search },
 			QuickFixLine { Search },

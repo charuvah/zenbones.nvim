@@ -1,13 +1,12 @@
-local colors_name = "retrobones"
-vim.g.colors_name = colors_name
+local colors_name = "batbones"
 
 local M = {}
 
-M.make_specs = function(theme)
+M.make_specs = function()
 	local generator = require "zenbones.specs"
 	local bg = vim.o.background
 	local lush = require "lush"
-	local theme = require("retrobones.theme")[bg]
+	local theme = require("batbones.theme")[bg]
 
 	local base_specs = generator.generate(theme.palette, bg, generator.get_global_config(colors_name, bg))
 
@@ -23,11 +22,16 @@ M.make_specs = function(theme)
 			NonText { base_specs.NonText, fg = theme.ui.non_text },
 			Visual { base_specs.Visual, bg = theme.ui.visual.bg },
 			NvimTreeWinSeparator { base_specs.Visual, bg = theme.ui.visual.bg },
-			VertSplit { Normal, fg = theme.ui.invisibles },
-			-- Remove bg so these don't punch through CursorLine
-			LspReferenceText  { gui = "underline" },
-			LspReferenceRead  { gui = "underline" },
-			LspReferenceWrite { gui = "bold,underline" },
+			WinSeparator { Normal, fg = theme.ui.invisibles },
+			VertSplit { WinSeparator },
+			Pmenu { Normal, fg = theme.ui.faded },
+			PmenuSel { Pmenu, bg = theme.ui.pmenu.sel },
+			PmenuSbar { Pmenu, bg = theme.ui.pmenu.sbar },
+			PmenuThumb { Normal, bg = theme.ui.invisibles },
+			-- Fix groups that chain to overridden groups inside base_specs
+			CursorColumn { CursorLine },
+			ModeMsg { Normal },
+			TermCursor { Cursor },
 			--------------------------------------------------------------------------------
 			-- Syntax
 			--------------------------------------------------------------------------------
@@ -43,25 +47,25 @@ M.make_specs = function(theme)
 			Statement { Keyword },
 			Label { Keyword },
 			Exception { Keyword },
-			Preaproc { Keyword },
+			PreProc { Keyword },
 			Delimiter { base_specs.Delimiter, fg = theme.syntax.punctuation.delimiter },
-			Operator { base_specs.Operator, fg = theme.syntax.punctuation.operator },
+			Operator { Delimiter },
 			Punctuation { Delimiter },
 			Comment { base_specs.Comment, fg = theme.syntax.comment.fg },
 			Todo { Comment, fg = theme.syntax.comment.todo },
 			Question { Comment, fg = theme.syntax.comment.question },
-			Special { base_specs.Special, fg = theme.syntax.string.special },
 			SpecialComment { Comment, fg = theme.syntax.comment.special },
+			Special { base_specs.Special, fg = theme.syntax.special },
 			WildMenu { base_specs.WildMenu, bg = theme.syntax.wild_menu.bg },
 			DiffAdd { base_specs.DiffAdd, bg = theme.vcs.diff_add.bg, fg = theme.vcs.diff_add.fg },
 			DiffDelete { base_specs.DiffDelete, bg = theme.vcs.diff_delete.bg, fg = theme.vcs.diff_delete.fg },
 			DiffChange { base_specs.DiffChange, bg = theme.vcs.diff_change.bg, fg = theme.vcs.diff_change.fg },
 			DiffText { base_specs.DiffText, bg = theme.vcs.diff_text.bg, fg = theme.vcs.diff_text.fg },
-			ColorColumn { base_specs.ColorColumn, bg = theme.ui.search.bg, fg = theme.ui.search.fg },
 			--------------------------------------------------------------------------------
 			-- Popups
 			--------------------------------------------------------------------------------
 			NormalFloat { Normal, bg = theme.plugins.float.bg, fg = theme.plugins.float.fg },
+			TelescopeSelection { CursorLine },
 			TelescopeMatching { Normal, fg = theme.plugins.telescope.matching },
 			--------------------------------------------------------------------------------
 			-- Plugins
@@ -120,7 +124,7 @@ M.make_specs = function(theme)
 			DiagnosticVirtualTextUnnecessary { DiagnosticVirtualTextHint },
 			DiagnosticUnderlineOk { base_specs.DiagnosticUnderlineOk, sp = DiagnosticOk.fg },
 			DiagnosticUnderlineHint { base_specs.DiagnosticUnderlineHint, sp = DiagnosticHint.fg },
-			DiagnosticUnderlineInfo { DiagnosticUnderlineHint },
+			DiagnosticUnderlineInfo { base_specs.DiagnosticUnderlineInfo, sp = DiagnosticInfo.fg },
 			DiagnosticUnderlineError { base_specs.DiagnosticUnderlineError, sp = DiagnosticError.fg },
 			DiagnosticUnderlineWarn { base_specs.DiagnosticUnderlineWarn, sp = DiagnosticWarn.fg },
 			DiagnosticUnderlineDeprecated { DiagnosticUnderlineHint },
@@ -140,6 +144,11 @@ M.make_specs = function(theme)
 			},
 			LineNr { base_specs.LineNr, fg = theme.ui.line_nr },
 			CursorLineNr { base_specs.LineNr, fg = theme.ui.cursor.line_nr },
+			SignColumn { LineNr },
+			FoldColumn { LineNr, gui = "bold" },
+			CurSearch { IncSearch },
+			MatchParen { Search },
+			QuickFixLine { Search },
 			MoreMsg { Constant, fg = theme.ui.more_msg },
 			WarningMsg { base_specs.WarningMsg, fg = theme.ui.warning_msg },
 			--------------------------------------------------------------------------------
@@ -147,7 +156,7 @@ M.make_specs = function(theme)
 			--------------------------------------------------------------------------------
 			TabLine { base_specs.TabLine, bg = theme.ui.tab.line.bg, fg = theme.ui.tab.line.fg },
 			TabLineSel { base_specs.TabLine, bg = theme.ui.tab.sel.bg, fg = theme.ui.tab.sel.fg },
-			TabLineFill { base_specs.TabLine },
+			TabLineFill { TabLine },
 			--------------------------------------------------------------------------------
 			-- Version Control
 			--------------------------------------------------------------------------------
@@ -155,18 +164,29 @@ M.make_specs = function(theme)
 			GitSignsDelete { base_specs.GitSignsDelete, fg = theme.vcs.sign.delete },
 			GitSignsChange { base_specs.GitSignsChange, fg = theme.vcs.sign.change },
 			--------------------------------------------------------------------------------
+			-- Diff syntax (diff filetype, :Git diff, etc.)
+			--------------------------------------------------------------------------------
+			diffAdded { base_specs.diffAdded, fg = theme.vcs.diff_add.fg },
+			diffRemoved { base_specs.diffRemoved, fg = theme.vcs.diff_delete.fg },
+			diffChanged { base_specs.diffChanged, fg = theme.vcs.diff_change.fg },
+			diffOldFile { base_specs.diffOldFile, fg = theme.vcs.diff_delete.fg },
+			diffNewFile { base_specs.diffNewFile, fg = theme.vcs.diff_add.fg },
+			diffFile { base_specs.diffFile, fg = theme.vcs.diff_text.fg },
+			diffLine { base_specs.diffLine, fg = theme.vcs.diff_change.fg },
+			diffIndexLine { base_specs.diffIndexLine, fg = theme.vcs.diff_text.fg },
+			--------------------------------------------------------------------------------
 			-- Treesitter
 			--------------------------------------------------------------------------------
-			---- Puncuation
-			sym "@operator" { Operator, fg = theme.syntax.punctuation.operator },
+			---- Punctuation
+			sym "@operator" { Punctuation, fg = theme.syntax.punctuation.operator },
 			sym "@punctuation.bracket" { Punctuation, fg = theme.syntax.punctuation.bracket },
 			sym "@punctuation.special" { Punctuation, fg = theme.syntax.punctuation.special },
 			sym "@punctuation.delimiter" { Punctuation, fg = theme.syntax.punctuation.delimiter },
 			sym "@constructor" { Punctuation, fg = theme.syntax.punctuation.constructor },
 			---- Variable
-			sym "@variable" { fg = theme.syntax.variable },
-			sym "@variable.member" { fg = theme.syntax.member },
-			sym "@property" { fg = theme.syntax.property },
+			sym "@variable" { Normal, fg = theme.syntax.variable },
+			sym "@variable.member" { Normal, fg = theme.syntax.member },
+			sym "@property" { Normal, fg = theme.syntax.property },
 			sym "@keyword" { Keyword },
 			sym "@attribute" { Keyword },
 			sym "@type" { Type },
@@ -192,7 +212,7 @@ M.make_specs = function(theme)
 			sym "@comment.documentation" { Comment },
 			sym "@comment.todo" { Comment, fg = theme.syntax.comment.todo },
 			sym "@comment.note" { Comment, fg = theme.syntax.comment.note },
-			sym "@comment.warn" { Comment, fg = theme.syntax.comment.warn },
+			sym "@comment.warning" { Comment, fg = theme.syntax.comment.warn },
 			sym "@comment.error" { Comment, fg = theme.syntax.comment.error },
 			-- Lsp
 			sym "@lsp.type.keyword" { sym "@keyword" },
