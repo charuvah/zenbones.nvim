@@ -71,6 +71,7 @@ M.syntax = {
 	float     = crimson.darken(5),
 	constant  = amber,    -- String/Character inherit from this
 	func      = gold,
+	method    = color.bat_shadow.lighten(25),
 	keyword   = blue,
 	-- neutral from here down
 	special   = color.bat_slate,

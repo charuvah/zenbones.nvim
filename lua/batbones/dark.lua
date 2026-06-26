@@ -71,6 +71,7 @@ M.syntax = {
 	float     = crimson.lighten(5),
 	constant  = amber,    -- String/Character inherit from this
 	func      = gold,
+	method    = color.bat_fog,
 	keyword   = blue,
 	-- neutral from here down
 	special   = color.bat_slate,
@@ -166,7 +167,7 @@ M.diagnostics.virtual.error = {
 ---@class theme.plugins
 M.plugins = {}
 M.plugins.float = {
-	bg = color.bat_shadow,
+	bg = color.bat_shadow.mix(color.bat_black, 85),
 	fg = color.bat_slate,
 }
 M.plugins.telescope = {

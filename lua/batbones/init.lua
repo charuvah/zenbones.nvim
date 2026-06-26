@@ -42,7 +42,7 @@ M.make_specs = function()
 			String { Constant },
 			Type { base_specs.Type, fg = theme.syntax.type },
 			Identifier { Type },
-			Function { base_specs.Function, fg = theme.syntax.func },
+			Function { base_specs.Function, fg = theme.syntax.method },
 			Keyword { base_specs.Keyword, fg = theme.syntax.keyword },
 			Statement { Keyword },
 			Label { Keyword },
@@ -196,10 +196,10 @@ M.make_specs = function()
 			sym "@boolean" { Number },
 			sym "@number" { Number },
 			-- Function
-			sym "@function" { Function },
-			sym "@function.method" { Function },
-			sym "@function.call" { Function },
-			sym "@function.method.call" { Function },
+			sym "@function" { Normal, fg = theme.syntax.method },
+			sym "@function.method" { Normal, fg = theme.syntax.method },
+			sym "@function.call" { Normal, fg = theme.syntax.method },
+			sym "@function.method.call" { Normal, fg = theme.syntax.method },
 			sym "@variable.parameter" { Function, fg = theme.syntax.parameter },
 			-- String
 			sym "@string" { String },
@@ -217,6 +217,7 @@ M.make_specs = function()
 			-- Lsp
 			sym "@lsp.type.keyword" { sym "@keyword" },
 			sym "@lsp.type.function" { sym "@function" },
+			sym "@lsp.type.method" { sym "@function.method" },
 			sym "@lsp.type.variable" { sym "@variable" },
 			sym "@lsp.type.operator" { sym "@operator" },
 			sym "@lsp.type.type" { sym "@type" },
