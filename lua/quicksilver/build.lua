@@ -130,7 +130,39 @@ local function reset_modules(source)
 	end
 end
 
-local function make_lualine_theme(specs, background)
+local function load_source_lualine_theme(config)
+	local module = "lualine.themes." .. config.source
+	package.loaded[module] = nil
+	package.loaded[module .. "_dark"] = nil
+	package.loaded[module .. "_light"] = nil
+	package.loaded[module .. "_dark_default"] = nil
+	package.loaded[module .. "_light_default"] = nil
+
+	local ok, theme = pcall(require, module)
+	if not ok then
+		return nil
+	end
+
+	for section, modes in pairs(lualine_modes) do
+		if type(theme[section]) ~= "table" then
+			return nil
+		end
+		for _, mode in ipairs(modes) do
+			if type(theme[section][mode]) ~= "table" then
+				return nil
+			end
+		end
+	end
+
+	return theme
+end
+
+local function make_lualine_theme(config, specs, background)
+	local source_theme = load_source_lualine_theme(config)
+	if source_theme then
+		return source_theme
+	end
+
 	local da = background == "light" and -3 or 3
 	local common_fg = hex(specs.Folded.fg)
 	local inactive_bg = hex(specs.StatusLineNC.bg)
@@ -203,7 +235,7 @@ local function make_theme(config, background)
 	return {
 		highlights = highlights,
 		terminal = terminal,
-		lualine = make_lualine_theme(specs, background),
+		lualine = make_lualine_theme(config, specs, background),
 	}
 end
 
