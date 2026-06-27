@@ -132,6 +132,17 @@ vim.cmd.colorscheme("metaldust")
 
 You can also choose `retrodust`, `batdust`, or `cardust`.
 
+The bundle also generates matching lualine themes, so lualine can use the same
+name:
+
+```lua
+require("lualine").setup {
+    options = {
+        theme = "metaldust",
+    },
+}
+```
+
 ## [Configuration and other documentations](doc/zenbones.md)
 
 See [documentations](doc/zenbones.md) or `:help zenbones.txt`.
