@@ -67,6 +67,71 @@ Or choose from the collection:
 | `kanagawabones` | Inspired by [Kanagawa](https://github.com/rebelot/kanagawa.nvim)                           |
 | `randombones`   | Randomly pick from the collection.                                                         |
 
+## Quicksilver generated bundle
+
+This repository can generate a standalone Neovim plugin named
+`quicksilver.nvim`. The generated plugin bakes selected themes into a native C
+module, so runtime does not depend on zenbones, Lush, or Shipwright.
+
+Generated colorschemes:
+
+| colorscheme  | source theme |
+| ------------ | ------------ |
+| `retrodust`  | `retrobones` |
+| `batdust`    | `batbones`   |
+| `cardust`    | `carbones`   |
+| `metaldust`  | `metalbones` |
+
+Build it from this repository:
+
+```sh
+make quicksilver
+```
+
+The build uses Lush at generation time. By default it looks for Lush at the
+lazy.nvim install location:
+
+```text
+~/.local/share/nvim/lazy/lush.nvim
+```
+
+If Lush is somewhere else, pass its runtime path explicitly:
+
+```sh
+make quicksilver LUSH_RTP=/path/to/lush.nvim
+```
+
+The generated standalone plugin is written to:
+
+```text
+dist/quicksilver.nvim
+```
+
+Example lazy.nvim setup:
+
+```lua
+{
+    dir = "/path/to/zenbones.nvim/dist/quicksilver.nvim",
+    name = "quicksilver.nvim",
+    lazy = false,
+    priority = 1000,
+}
+```
+
+Load a generated colorscheme manually:
+
+```vim
+colorscheme metaldust
+```
+
+Or from Lua:
+
+```lua
+vim.cmd.colorscheme("metaldust")
+```
+
+You can also choose `retrodust`, `batdust`, or `cardust`.
+
 ## [Configuration and other documentations](doc/zenbones.md)
 
 See [documentations](doc/zenbones.md) or `:help zenbones.txt`.
